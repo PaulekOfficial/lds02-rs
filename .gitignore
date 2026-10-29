@@ -1,0 +1,21 @@
+# Build output (library and nested example crates)
+/target/
+/examples/*/target/
+
+# Rust tooling leftovers
+**/*.rs.bk
+*.pdb
+
+# IDE and editor
+/.idea/
+/.vscode/
+*.iml
+*.swp
+*~
+
+# Local tool state
+/.serena/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,27 @@
+[package]
+name = "lds02"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "no_std driver for the Xiaomi / Roborock LDS02RR LIDAR with PID motor speed control"
+license = "MIT OR Apache-2.0"
+categories = ["embedded", "no-std", "hardware-support"]
+keywords = ["lidar", "lds02rr", "roborock", "embassy", "no-std"]
+exclude = ["examples/", ".idea/", ".serena/"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[features]
+default = ["async"]
+## Async reading via `embedded-io-async` (embassy, esp-hal `Async` UART).
+async = ["dep:embedded-io-async"]
+## `defmt::Format` for all public types.
+defmt = ["dep:defmt", "embedded-io/defmt"]
+
+[dependencies]
+embedded-hal = "1.0"
+embedded-io = "0.7"
+embedded-io-async = { version = "0.7", optional = true }
+defmt = { version = "1", optional = true }

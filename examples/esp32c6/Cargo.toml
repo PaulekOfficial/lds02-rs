@@ -1,0 +1,26 @@
+[package]
+name = "lds02-esp32c6-examples"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+lds02 = { path = "../.." }
+embassy-executor = "0.10"
+embassy-sync = "0.8"
+embassy-time = "0.5"
+esp-backtrace = { version = "0.20", features = ["esp32c6", "panic-handler", "println"] }
+esp-bootloader-esp-idf = { version = "0.6", features = ["esp32c6"] }
+esp-hal = { version = "1.2", features = ["esp32c6", "unstable"] }
+esp-println = { version = "0.18", features = ["esp32c6"] }
+esp-rtos = { version = "0.4", features = ["esp32c6", "embassy"] }
+
+[profile.dev]
+# Unoptimized builds are too slow for 115200 baud parsing plus logging.
+opt-level = "s"
+
+[profile.release]
+debug = true
+lto = "fat"
+codegen-units = 1
+opt-level = "s"

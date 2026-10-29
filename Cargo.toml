@@ -3,6 +3,7 @@ name = "lds02"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.85"
+repository = "https://github.com/PaulekOfficial/lds02-rs.git"
 description = "no_std driver for the Xiaomi / Roborock LDS02RR LIDAR with PID motor speed control"
 license = "MIT OR Apache-2.0"
 categories = ["embedded", "no-std", "hardware-support"]
